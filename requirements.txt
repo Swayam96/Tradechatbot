@@ -9,9 +9,7 @@ beautifulsoup4>=4.12.0
 lxml>=5.0.0
 
 # ML / embeddings
-sentence-transformers>=2.7.0
 numpy>=1.26.0
-faiss-cpu>=1.8.0
 
 # Vector store (optional — only needed if VECTOR_STORE_TYPE=pinecone)
 pinecone>=5.0.0
