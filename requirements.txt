@@ -1,0 +1,23 @@
+# Flask
+flask>=3.0.0
+python-dotenv>=1.0.0
+
+# HTTP & scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# ML / embeddings
+sentence-transformers>=2.7.0
+numpy>=1.26.0
+faiss-cpu>=1.8.0
+
+# Vector store (optional — only needed if VECTOR_STORE_TYPE=pinecone)
+pinecone>=5.0.0
+
+# LLM providers (install what you use)
+openai>=1.30.0
+anthropic>=0.28.0
+
+# Testing
+pytest>=8.0.0

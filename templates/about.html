@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}About — {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm about-card">
+                <div class="card-body p-4 p-md-5">
+                    <h1 class="h3 mb-4">About {{ app_name }}</h1>
+
+                    <p class="lead">
+                        {{ app_name }} is an educational trade and finance chatbot powered by
+                        Retrieval-Augmented Generation (RAG). It answers your questions using
+                        content crawled from trusted web sources — not from static PDFs or books.
+                    </p>
+
+                    <h2 class="h5 mt-4">How it works</h2>
+                    <ol class="text-muted">
+                        <li>We crawl and extract article content from the configured knowledge base website.</li>
+                        <li>Content is cleaned, chunked, and converted into vector embeddings.</li>
+                        <li>When you ask a question, relevant passages are retrieved and sent to an LLM.</li>
+                        <li>The model generates an answer grounded in those sources, with citations.</li>
+                    </ol>
+
+                    <h2 class="h5 mt-4">Knowledge base</h2>
+                    <p>
+                        Current source website:
+                        <a href="{{ knowledge_base_url }}" target="_blank" rel="noopener">{{ knowledge_base_url }}</a>
+                    </p>
+                    <p class="text-muted small">
+                        You can change the target website by updating <code>TARGET_WEBSITE_BASE_URL</code>
+                        in your <code>.env</code> file and rebuilding the index.
+                    </p>
+
+                    <h2 class="h5 mt-4">Technical stack</h2>
+                    <ul class="list-unstyled tech-stack">
+                        <li><i class="bi bi-database me-2"></i>Vector store: <strong>{{ vector_store }}</strong></li>
+                        <li><i class="bi bi-cpu me-2"></i>Embeddings: <strong>{{ embedding_model }}</strong></li>
+                        <li><i class="bi bi-chat-dots me-2"></i>LLM: <strong>{{ llm_provider }} / {{ llm_model }}</strong></li>
+                    </ul>
+
+                    <div class="alert alert-warning mt-4 mb-0" role="alert">
+                        <h2 class="h6 alert-heading"><i class="bi bi-exclamation-triangle me-2"></i>Disclaimer</h2>
+                        <p class="mb-0 small">
+                            {{ app_name }} is provided for <strong>educational and informational purposes only</strong>.
+                            It does <strong>not</strong> constitute financial, investment, tax, or legal advice.
+                            Always consult a qualified professional before making financial decisions.
+                            Past performance is not indicative of future results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

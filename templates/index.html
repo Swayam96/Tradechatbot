@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}{{ app_name }} — Trade Assistant{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-3 px-lg-4 chat-page">
+    <div class="row g-4 chat-layout">
+        <!-- Chat panel -->
+        <div class="col-lg-8">
+            <div class="chat-card">
+                <div class="chat-header">
+                    <div class="chat-header-left">
+                        <div class="chat-header-icon">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <div>
+                            <h1 class="chat-title">Trade Assistant</h1>
+                            <p class="chat-subtitle">Powered by RAG · Finance &amp; trading knowledge</p>
+                        </div>
+                    </div>
+                    <div class="status-pill">
+                        <span class="status-pulse"></span>
+                        Online
+                    </div>
+                </div>
+
+                <div id="chat-messages" class="chat-messages" aria-live="polite">
+                    <div class="message bot-message">
+                        <div class="message-avatar"><i class="bi bi-stars"></i></div>
+                        <div class="message-content">
+                            <div class="message-meta">
+                                <span class="message-sender">{{ app_name }}</span>
+                                <span class="message-time">Just now</span>
+                            </div>
+                            <div class="message-bubble">
+                                <p class="mb-0">Hello! I'm <strong>{{ app_name }}</strong>, your trade &amp; finance assistant.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="typing-indicator" class="typing-indicator d-none" aria-hidden="true">
+                    <div class="message-avatar"><i class="bi bi-stars"></i></div>
+                    <div class="typing-bubble">
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <form id="chat-form" class="chat-form" autocomplete="off">
+                        <div class="input-wrapper">
+                            <input
+                                type="text"
+                                id="message-input"
+                                class="chat-input"
+                                placeholder="Ask about stocks, options, risk management…"
+                                aria-label="Your message"
+                                required
+                            >
+                            <button type="submit" id="send-btn" class="send-btn" aria-label="Send message">
+                                <i class="bi bi-arrow-up-short"></i>
+                            </button>
+                        </div>
+                        <p class="input-hint"><kbd>Enter</kbd> to send</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <div class="sidebar-card sources-card">
+                <div class="sidebar-card-header">
+                    <i class="bi bi-journal-bookmark"></i>
+                    <h2>Sources</h2>
+                </div>
+                <div class="sidebar-card-body">
+                    <p class="sidebar-hint">Citations from the latest response</p>
+                    <ul id="sources-list" class="sources-list">
+                        <li class="sources-empty">
+                            <i class="bi bi-link-45deg"></i>
+                            <span>No sources yet</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-card tips-card">
+                <div class="sidebar-card-header">
+                    <i class="bi bi-lightning-charge"></i>
+                    <h2>Quick prompts</h2>
+                </div>
+                <div class="sidebar-card-body">
+                    <div class="suggestion-chips">
+                        <button type="button" class="suggestion-chip">What is a stop-loss order?</button>
+                        <button type="button" class="suggestion-chip">Explain diversification</button>
+                        <button type="button" class="suggestion-chip">Stocks vs bonds</button>
+                        <button type="button" class="suggestion-chip">What is an ETF?</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-card info-card">
+                <div class="info-stat">
+                    <i class="bi bi-database"></i>
+                    <div>
+                        <span class="info-label">Knowledge base</span>
+                        <span class="info-value">Investopedia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
